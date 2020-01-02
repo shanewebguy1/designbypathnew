@@ -1,5 +1,5 @@
-const slash = require('slash')
-const path = require('path')
+const path = require('path');
+const slash = require('slash');
 
 
 exports.createPages = async ({ graphql, actions }) => {
