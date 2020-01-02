@@ -1,6 +1,5 @@
-const path = require('path');
 const slash = require('slash');
-
+const path = require('path');
 
 exports.createPages = async ({ graphql, actions }) => {
 
@@ -31,10 +30,9 @@ exports.createPages = async ({ graphql, actions }) => {
   allWordpressPage.edges.forEach(edge => {
 
     if(edge.node.link != "") {
-    
-    createPage({
-    
-      component: slash(path.resolve(`/src/templates/page.js`)),
+      
+    createPage({     
+      component: path.resolve(`/src/templates/page.js`),
       path: edge.node.link,
       context: {
         wpId: edge.node.wordpress_id,
