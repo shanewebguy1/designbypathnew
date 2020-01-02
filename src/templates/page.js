@@ -1,5 +1,5 @@
 import React from 'react';
-import {   graphql } from 'gatsby';
+
 
 
 const PageTemplate = ({ data }) => (
@@ -12,20 +12,11 @@ eqwewq
 )
 
 
-export default PageTemplate;
 
 export default PageTemplate;
 
 export const pageQuery = graphql`
 
-query($wpId: Int!) {
 
-    currentPage :   wordpressPage(wordpress_id: {eq: $wpId}) {
-        title
-        content
-    }
-
-}       
-`
 
 
