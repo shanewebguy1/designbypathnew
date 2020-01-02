@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 
 const PageTemplate = ({ data }) => (
 
-<Layout>
+
 
     <div id="content" className="clearfix row">
                 
@@ -24,7 +24,7 @@ const PageTemplate = ({ data }) => (
                     
     </div>
 
-</Layout>
+
 
 )
 
