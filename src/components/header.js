@@ -1,42 +1,88 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import Navigation from './Navigation';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+const Header = () => { 
+    
+    const {
+
+        logo :  {
+            options: logo,
+        } ,
+        
+        menu :  {
+            edges: [{ node: menu }],
+        } ,
+
+    } = useStaticQuery(graphql`
+
+
+    query HeaderQuery {
+ 
+        logo: wordpressAcfOptions {
+            options {
+                logo {
+                    localFile {
+                      publicURL
+                    }
+                }
+              }
+        }
+        
+        site {
+          siteMetadata {
+            title
+          }
+        }
+        
+        menu: allWordpressMenusMenusItems(
+          filter: { wordpress_id: { eq: 2 } }
+        ) {
+          totalCount
+          edges {
+            node {
+              items {
+                title
+                url
+              }
+              name
+            }
+          }
+        }
+    }
+
+ 
+
+  `);
+
+
+return( <div>
+
+<header role="banner" className="">
+
+ <div className="navbar navbar-default navbar-fixed-top" id="navbar-fixed-top">
+				<div className="container">
+
+                    <div className="navbar-header">	
+
+                        <Link to="/" className="navbar-brand" type="logo">
+                           <img id='logo' type="logo" src={ logo.logo.localFile.publicURL } alt="Design by Patrick Logo" />
+                        </Link>   
+ 
+					</div>
+
+                    <Navigation menu={menu} />
+
+				</div> 
+			</div>
+		<div className="clear"></div>
+
+		     
+    </header>
+   
+</div>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header
