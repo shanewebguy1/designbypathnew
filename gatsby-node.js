@@ -33,8 +33,8 @@ exports.createPages = async ({ graphql, actions }) => {
     if(edge.node.link != "") {
     
     createPage({
-    
-      component: slash(path.resolve(`https://github.com/shanewebguy1/designbypathnew/src/templates/page.js`)),
+        
+      component: '/opt/build/repo/src/templates/page.js',
       path: edge.node.link,
       context: {
         wpId: edge.node.wordpress_id,
