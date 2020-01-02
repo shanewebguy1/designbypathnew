@@ -6,10 +6,9 @@ import {   graphql } from 'gatsby';
 const PageTemplate = ({ data }) => (
 
 
-<div className="eqweq">
-eqwewq
-
-</div>
+    <article>
+        <div className="page-header"><h1>{data.currentPage.title}</h1></div>              
+    </article> 
 
 
 )
