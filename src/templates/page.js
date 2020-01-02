@@ -12,11 +12,7 @@ eqwewq
 )
 
 
-
 export default PageTemplate;
-
-export const pageQuery = graphql`
-
 
 
 
