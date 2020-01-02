@@ -31,13 +31,12 @@ module.exports = {
       resolve: 'gatsby-source-wordpress',
       options: {
         excludedRoutes: ['/wp/v2/users/**', '/wp/v2/settings*'],
-        baseUrl: 'designbypatrick.com',
+        baseUrl: 'tango.startlearningreact.com',
         protocol: 'https',
-        withWebp: true,
         hostingWPCOM: false,
         useACF: true,
         searchAndReplaceContentUrls: {
-          sourceUrl: 'https://www.designbypatrick.com/',
+          sourceUrl: 'http://tango.startlearningreact.com',
           replacementUrl: '',
         },
       },
